@@ -1,10 +1,11 @@
 const { defineConfig } = require("cypress");
+require('dotenv').config();
 
 module.exports = defineConfig({
-  projectId: '5jtqae',
+  projectId: 'vor6iz',
   e2e: {
+    baseUrl: 'https://jet-pagination.netlify.app',
     setupNodeEvents(on, config) {
-      // implement node event listeners here
     },
   },
 
@@ -15,13 +16,8 @@ module.exports = defineConfig({
     },
   },
 
-  e2e: {
-    baseUrl: 'https://jet-pagination.netlify.app',
-    setupNodeEvents(on, config) {
-
-    },
-  },
   env: {
-    localUrl: 'http://localhost:8080'
+    localUrl: 'http://localhost:8080',
+    CYPRESS_RECORD_KEY: process.env.CYPRESS_RECORD_KEY,
   }
 });
